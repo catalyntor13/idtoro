@@ -3,13 +3,9 @@
 import { useState, useEffect } from "react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { Send } from "lucide-react"
+import { Send } from 'lucide-react'
 
 export default function TypingPromptInput() {
-  const prompts = [
-    'Cacamas in nasu tau'
-  ]
-
   const [displayText, setDisplayText] = useState("")
   const [currentPromptIndex, setCurrentPromptIndex] = useState(0)
   const [isTyping, setIsTyping] = useState(true)
@@ -22,6 +18,11 @@ export default function TypingPromptInput() {
   const pauseBeforeNextPrompt = 500 // pause before typing next prompt
 
   useEffect(() => {
+    // Move prompts array inside useEffect
+    const prompts = [
+      'De la website-uri optimizate și conținut video profesionist, până la strategii de marketing eficiente — oferim tot ce ai nevoie pentru a atrage și converti clienți.'
+    ]
+
     let timeout: NodeJS.Timeout
 
     if (isTyping) {
@@ -54,7 +55,7 @@ export default function TypingPromptInput() {
     }
 
     return () => clearTimeout(timeout)
-  }, [currentCharIndex, currentPromptIndex, isTyping, prompts])
+  }, [currentCharIndex, currentPromptIndex, isTyping]) // Remove prompts from dependencies
 
   return (
     <div className="relative w-full max-w-2xl mx-auto">

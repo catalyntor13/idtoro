@@ -37,7 +37,7 @@ export default function FeatureCard({
     >
       <Card className="h-full overflow-hidden bg-background/60 backdrop-blur-sm border transition-all duration-300 hover:shadow-lg dark:bg-background/80">
         <div className="p-6 h-full flex flex-col relative z-10">
-         
+         <div className="mb-4 text-primary">{icon}</div>
 
           <h3 className="text-xl font-bold mb-2">{title}</h3>
           <p className="text-muted-foreground flex-grow">{description}</p>

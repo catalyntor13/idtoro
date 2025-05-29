@@ -13,7 +13,7 @@ export default function FramerSpotlight() {
   const { resolvedTheme } = useTheme()
   const isDark = resolvedTheme === "dark"
 
-  // Motion values for the spotlight position with spring physics
+  // Move motion values outside useEffect
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
 
@@ -28,52 +28,52 @@ export default function FramerSpotlight() {
     { color: "rgba(16, 185, 129, 0.15)", darkColor: "rgba(16, 185, 129, 0.2)" }, // Green
   ]
 
-  // Update default position without causing re-renders
-  const updateDefaultPosition = () => {
-    if (heroRef.current) {
-      const heroRect = heroRef.current.getBoundingClientRect()
-      const centerX = heroRect.left + heroRect.width / 2
-      const centerY = heroRect.top + heroRect.height / 3
-
-      defaultPositionRef.current = { x: centerX, y: centerY }
-
-      // Set initial position
-      mouseX.set(centerX)
-      mouseY.set(centerY)
-    }
-  }
-
-  // Handle mouse enter/leave for hero section
-  const handleMouseEnter = () => {
-    setIsMouseInHero(true)
-  }
-
-  const handleMouseLeave = () => {
-    setIsMouseInHero(false)
-
-    // Animate back to default position
-    animate(mouseX, defaultPositionRef.current.x, {
-      duration: 1.2,
-      ease: "easeInOut",
-    })
-
-    animate(mouseY, defaultPositionRef.current.y, {
-      duration: 1.2,
-      ease: "easeInOut",
-    })
-  }
-
-  // Handle mouse movement only when inside hero
-  const handleMouseMove = (e: MouseEvent) => {
-    if (isMouseInHero) {
-      mouseX.set(e.clientX)
-      mouseY.set(e.clientY)
-    }
-  }
-
   // Setup effect - runs once on mount and cleans up on unmount
   useEffect(() => {
     setIsMounted(true)
+
+    // Update default position without causing re-renders
+    const updateDefaultPosition = () => {
+      if (heroRef.current) {
+        const heroRect = heroRef.current.getBoundingClientRect()
+        const centerX = heroRect.left + heroRect.width / 2
+        const centerY = heroRect.top + heroRect.height / 3
+
+        defaultPositionRef.current = { x: centerX, y: centerY }
+
+        // Set initial position
+        mouseX.set(centerX)
+        mouseY.set(centerY)
+      }
+    }
+
+    // Handle mouse enter/leave for hero section
+    const handleMouseEnter = () => {
+      setIsMouseInHero(true)
+    }
+
+    const handleMouseLeave = () => {
+      setIsMouseInHero(false)
+
+      // Animate back to default position
+      animate(mouseX, defaultPositionRef.current.x, {
+        duration: 1.2,
+        ease: "easeInOut",
+      })
+
+      animate(mouseY, defaultPositionRef.current.y, {
+        duration: 1.2,
+        ease: "easeInOut",
+      })
+    }
+
+    // Handle mouse movement only when inside hero
+    const handleMouseMove = (e: MouseEvent) => {
+      if (isMouseInHero) {
+        mouseX.set(e.clientX)
+        mouseY.set(e.clientY)
+      }
+    }
 
     // Find the hero section element
     heroRef.current = document.getElementById("hero")
@@ -100,7 +100,7 @@ export default function FramerSpotlight() {
         heroRef.current.removeEventListener("mouseleave", handleMouseLeave)
       }
     }
-  }, [isMouseInHero]) // Only depend on isMouseInHero
+  }, [isMouseInHero, mouseX, mouseY]) // Add mouseX and mouseY to dependencies
 
   if (!isMounted) {
     return null

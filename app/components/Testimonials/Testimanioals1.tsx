@@ -5,29 +5,29 @@ export default function Testimonials() {
   const testimonials = [
     {
       quote:
-        "This AI platform has transformed how our organization handles knowledge management and customer support. The security features give us peace of mind when dealing with sensitive data.",
-      name: "Sarah Chen",
-      title: "CTO, Global Financial Services",
-      avatar: "SC",
+        "Am primit un website modern, exact cum ne doream. Totul a fost livrat la timp, iar comunicarea a fost excelentă pe tot parcursul proiectului.",
+      name: "Ema Karter",
+      title: "Artista, Influencer",
+      avatar: "EK",
     },
     {
       quote:
-        "The ability to customize agents and integrate with our existing systems has made this platform invaluable for our government operations. The ROI has been substantial.",
-      name: "Michael Johnson",
-      title: "IT Director, Government Agency",
-      avatar: "MJ",
+        "Echipa a creat un site atractiv, care ne-a ajutat să atragem mai mulți clienți. Ne-au oferit și suport după lansare, ceea ce a fost un mare plus!",
+      name: "Boonie Blue",
+      title: "Director la OnlyFans",
+      avatar: "BB",
     },
     {
       quote:
-        "We've seen a 40% increase in productivity since implementing this solution. The knowledge base integration and custom prompt templates have been game-changers.",
-      name: "David Rodriguez",
-      title: "Head of Innovation, Enterprise Tech",
+        "Serviciile lor de marketing și optimizare ne-au crescut vizibilitatea în online. Rezultate reale, livrate rapid. Îi recomand cu încredere!",
+      name: "David Ramon",
+      title: "Cercetator NASA, CERN",
       avatar: "DR",
     },
   ]
 
   return (
-    <section className="py-20">
+    <section id="testimonials" className="py-20">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <div className="space-y-2">
@@ -35,10 +35,10 @@ export default function Testimonials() {
               Testimonials
             </div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              Trusted by Leading Organizations
+              Partener de incredere
             </h2>
             <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-              See what our enterprise and government clients have to say about our AI platform.
+              Vezi ce spun clientii nostri
             </p>
           </div>
         </div>
@@ -46,7 +46,7 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="h-full flex flex-col">
               <CardContent className="pt-6 flex-grow">
-                <div className="mb-4 text-4xl">"</div>
+                <div className="mb-4 text-4xl">&quot;</div>
                 <p className="italic text-muted-foreground">{testimonial.quote}</p>
               </CardContent>
               <CardFooter className="border-t pt-4">
