@@ -6,21 +6,21 @@ export default function Testimonials() {
     {
       quote:
         "Am primit un website modern, exact cum ne doream. Totul a fost livrat la timp, iar comunicarea a fost excelentă pe tot parcursul proiectului.",
-      name: "Ema Karter",
-      title: "Artista, Influencer",
+      name: "Alexandra",
+      title: "Marketing Director",
       avatar: "EK",
     },
     {
       quote:
         "Echipa a creat un site atractiv, care ne-a ajutat să atragem mai mulți clienți. Ne-au oferit și suport după lansare, ceea ce a fost un mare plus!",
-      name: "Boonie Blue",
-      title: "Director la OnlyFans",
+      name: "Andreea",
+      title: "CEO",
       avatar: "BB",
     },
     {
       quote:
         "Serviciile lor de marketing și optimizare ne-au crescut vizibilitatea în online. Rezultate reale, livrate rapid. Îi recomand cu încredere!",
-      name: "David Ramon",
+      name: "Daniela",
       title: "Cercetator NASA, CERN",
       avatar: "DR",
     },
